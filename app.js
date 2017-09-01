@@ -90,6 +90,12 @@ io.on('connection', function (client) {
 
 
     connection.open();
+connection1.onopen = function (session) {
+	console.log("Websocket connection1 open");
+	function globalEvent(args, kwargs){
+		 console.log(args);
+	}
+};
 
 //bittrex
 bittrex.websockets.listen( function( data ) {
@@ -109,24 +115,4 @@ bittrex.websockets.subscribe(['BTC-ETH','BTC-SC','BTC-ZEN'], function(data) {
       // console.log('Market Update for '+ data_for.MarketName, data_for);
     });
   }
-});
-
-// Import the module 
-var polo = require("poloniex-unofficial");
- 
-// Get access to the push API 
-var poloPush = new polo.PushWrapper();
- 
-// Receive ticker updates 
-poloPush.ticker((err, response) => {
-    if (err) {
-        // Log error message 
-        console.log("An error occurred: " + err.msg);
- 
-        // Disconnect 
-        return true;
-    }
- 
-    // Log raw response 
-    console.log(response);
 });
