@@ -90,13 +90,16 @@ io.on('connection', function (client) {
 
 
     connection.open();
+	
 connection1.onopen = function (session) {
 	console.log("Websocket connection1 open");
 	function globalEvent(args, kwargs){
 		 console.log(args);
 	}
+	session.subscribe('global', globalEvent);
 };
 
+ connection1.open();
 //bittrex
 bittrex.websockets.listen( function( data ) {
   if (data.M === 'updateSummaryState') {
