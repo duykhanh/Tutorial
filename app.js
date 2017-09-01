@@ -11,7 +11,7 @@ var bittrex = require('node.bittrex.api');
 var autobahn = require('autobahn');
 var wsuri = "wss://api.poloniex.com";
 var bodyParser = require("body-parser");
-var wscoincap='wss://coincap.io/socket.io';
+var wscoincap="wss://coincap.io/socket.io";
 
 var connection = new autobahn.Connection({
     url: wsuri,
